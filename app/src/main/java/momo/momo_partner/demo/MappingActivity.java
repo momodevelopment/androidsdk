@@ -94,22 +94,15 @@ public class MappingActivity extends Activity {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == AppMoMoLib.getInstance().REQUEST_CODE_MOMO && resultCode == -1) {
             if(data != null) {
+                tvMessage.setText("message: " + data.getStringExtra("message"));
                 if(data.getIntExtra("status", -1) == 0) {
-                    tvMessage.setText("message: " + "Get token " + data.getStringExtra("message"));
                     String token = data.getStringExtra("data");
                     String phoneNumber = data.getStringExtra("phonenumber");
                     if(token != null && !token.equals("")) {
                         // TODO:
                     } else {
-                        tvMessage.setText("message: " + this.getString(R.string.not_receive_info));
+
                     }
-                } else if(data.getIntExtra("status", -1) == 1) {
-                    String message = data.getStringExtra("message") != null?data.getStringExtra("message"):"Thất bại";
-                    tvMessage.setText("message: " + message);
-                } else if(data.getIntExtra("status", -1) == 2) {
-                    tvMessage.setText("message: " + this.getString(R.string.not_receive_info));
-                } else {
-                    tvMessage.setText("message: " + this.getString(R.string.not_receive_info));
                 }
             } else {
                 tvMessage.setText("message: " + this.getString(R.string.not_receive_info));
