@@ -39,7 +39,12 @@ import vn.momo.momo_partner.MoMoParameterNameMap;
 
 void onCreate(Bundle savedInstanceState) 
         AppMoMoLib.getInstance().setEnvironment(AppMoMoLib.ENVIRONMENT.DEVELOPMENT); // AppMoMoLib.ENVIRONMENT.PRODUCTION
-        
+```
+Display MoMo button label language: English = "MoMo e-wallet", "Vietnamese = Ví MoMo"
+
+Step 4. app MoMo app & request payment
+```
+//Get token through MoMo app 
 void requestToken() {
         AppMoMoLib.getInstance().setAction(AppMoMoLib.ACTION.PAYMENT);
         AppMoMoLib.getInstance().setActionType(AppMoMoLib.ACTION_TYPE.GET_TOKEN);
@@ -66,7 +71,7 @@ void requestToken() {
         eventValue.put(MoMoParameterNamePayment.EXTRA, objExtra);
         AppMoMoLib.getInstance().requestMoMoCallBack(this, eventValue);
     } 
-
+//Get token callback from MoMo app an submit to server side 
 void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if(requestCode == AppMoMoLib.getInstance().REQUEST_CODE_MOMO && resultCode == -1) {
@@ -77,7 +82,8 @@ void onActivityResult(int requestCode, int resultCode, Intent data) {
                     String token = data.getStringExtra("data"); //Token response 
                     String phoneNumber = data.getStringExtra("phonenumber");
                     if(token != null && !token.equals("")) {
-                        // TODO: send phoneNumber & token to your server side to process payment with MoMo server  
+                        // TODO: send phoneNumber & token to your server side to process payment with MoMo server
+                        // IF Momo topup success, continue to process your order
                     } else {
                         tvMessage.setText("message: " + this.getString(R.string.not_receive_info));
                     }
