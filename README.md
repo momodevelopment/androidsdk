@@ -40,7 +40,8 @@ import vn.momo.momo_partner.MoMoParameterNameMap;
 void onCreate(Bundle savedInstanceState) 
         AppMoMoLib.getInstance().setEnvironment(AppMoMoLib.ENVIRONMENT.DEVELOPMENT); // AppMoMoLib.ENVIRONMENT.PRODUCTION
 ```
-Display MoMo button label language: English = "MoMo e-wallet", "Vietnamese = Ví MoMo"
+- Display MoMo button label language (required): English = "MoMo e-wallet", Vietnamese = "Ví MoMo"
+- Display icon or button color (optional): title color #b0006d , icon http://app.momo.vn:81/momo_app/logo/MoMo.png 
 
 Step 4. app MoMo app & request payment
 ```
