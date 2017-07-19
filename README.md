@@ -43,7 +43,7 @@ void onCreate(Bundle savedInstanceState)
 - Display MoMo button label language (required): English = "MoMo e-wallet", Vietnamese = "Ví MoMo"
 - Display icon or button color (optional): title color #b0006d , icon http://app.momo.vn:81/momo_app/logo/MoMo.png 
 
-Step 4. app MoMo app & request payment
+Step 4. Get token & request payment
 ```
 //Get token through MoMo app 
 void requestToken() {
